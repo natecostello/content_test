@@ -9,10 +9,11 @@ jobs:
     name: Repo Dispatch
     # set the type of machine to run on
     runs-on: ubuntu-latest
-
-    uses: peter-evans/repository-dispatch@v1
-    with:
-      token: ${{ secrets.auto_submodule_update }}
-      repository: natecostello/submodule_test
-      event-type: my-test
-      client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+    steps:
+	- name: Repository Dispatch
+    	  uses: peter-evans/repository-dispatch@v1
+    	  with:
+          token: ${{ secrets.auto_submodule_update }}
+          repository: natecostello/submodule_test
+          event-type: my-test
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
