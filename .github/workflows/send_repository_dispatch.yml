@@ -10,9 +10,9 @@ jobs:
     # set the type of machine to run on
     runs-on: ubuntu-latest
     steps:
-       - name: Repository Dispatch
-    	   uses: peter-evans/repository-dispatch@v1
-    	   with:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.1.2
+        with:
          token: ${{ secrets.auto_submodule_update }}
          repository: natecostello/submodule_test
          event-type: my-test
